@@ -1,0 +1,10 @@
+{
+  "name": "product-analytics",
+  "version": "1.1.0",
+  "description": "Turns a data request into a decision. Stops to ask what decision is being made, runs a comparability check on any group comparison, and stops again before stating a conclusion.",
+  "author": { "name": "AI Analyst Lab", "url": "https://aianalystlab.ai" },
+  "homepage": "https://aianalystlab.ai/pa101",
+  "keywords": ["analytics", "product-analytics", "data", "validation"],
+  "skills": "./.claude/skills/",
+  "commands": ["./.claude/commands/frame.md", "./.claude/commands/check.md"]
+}

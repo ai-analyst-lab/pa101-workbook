@@ -7,7 +7,7 @@
   "plugins": [
     {
       "name": "product-analytics",
-      "source": "./product-analytics",
+      "source": "./",
       "description": "Turns a data request into a decision. Runs a framing gate, a comparability check, and a validation gate before it will state a conclusion."
     }
   ],

@@ -10,13 +10,14 @@ before the system proceeds.
 ## Contents
 
 ```
-CLAUDE.md                              constraints (35 lines)
+CLAUDE.md                              project instructions
 .claude/skills/analysis-workflow/      the analysis workflow
+.claude/commands/                      /frame and /check
 .claude/rules/datasets.md              rules that apply when reading data
 .claude/hooks/list-datasets.sh         lists available datasets at session start
+.claude-plugin/                        manifests that publish this repo as a plugin
 datasets/novamart/                     50,000 synthetic users
 datasets/storefront/                   50,000 synthetic visitors
-product-analytics/                     the Cowork plugin
 ```
 
 Each dataset has its own `definitions.md`. No file outside `datasets/` names a dataset, a column, or
@@ -63,13 +64,12 @@ This repo is also a plugin marketplace.
 2. Choose Add marketplace and enter `ai-analyst-lab/pa101-workbook`.
 3. Install `product-analytics`.
 
-The plugin provides the workflow as a skill plus two commands: `/product-analytics:frame` (turn a
-request into a decision, a question, and a hypothesis) and `/product-analytics:check` (run a
-comparability check on a group comparison). The plugin carries no data.
+The plugin provides the workflow as a skill plus two commands: `frame` (turn a request into a
+decision, a question, and a hypothesis) and `check` (run a comparability check on a group
+comparison).
 
 ## Notes
 
-- The workflow lives in one file, `product-analytics/skills/analysis-workflow/SKILL.md`.
-  `.claude/skills/analysis-workflow` is a symlink to it. On Windows, set `git config core.symlinks
-  true` before cloning.
+- The plugin and the project share the same files. `.claude-plugin/plugin.json` points at
+  `.claude/skills/` and `.claude/commands/`, so there is one copy of everything.
 - Both datasets are synthetic, generated for teaching. No real people, no real company.
