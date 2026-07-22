@@ -20,21 +20,29 @@ DECIDE  ->  ASK  ->  HYPOTHESIZE  ->  MEASURE  ->  SHARE  ->  ACT
 
 Most analysis is just measure and share. The other four are what turn a number into a decision.
 
-## Try it
+## Two ways to run it, and the order matters
 
-Clone the repo, open it in Claude Code, and ask the question the way it actually arrives:
+The workflow in this repo is the *second* run. It has the definitions and the checks already written
+down, so it will catch the problem in the first step. That is the point of it, and it also spoils the
+exercise if you start here.
+
+**Do the walkthrough first, without this repo.** Download the CSV, open
+[claude.ai](https://claude.ai), and work through the steps on the student portal. You will get a
+clean, correct, confident answer that is about to send you the wrong way. That is the experience the
+lesson is built on.
+
+**Then clone this repo and ask the same question.** Open it in Claude Code and paste the request the
+way it actually arrives:
 
 > Users who use Save for Later seem to buy a lot more than users who don't. We're thinking about
 > making the Save for Later button more prominent to drive purchases. Should we?
 
-It will stop and ask you what you actually want before it analyzes anything. Answer, and it will run
-the comparison, then check whether the two groups were comparable in the first place, then stop again
+It stops and asks what you actually want before it analyzes anything. Answer, and it runs the
+comparison, then checks whether the two groups were comparable in the first place, then stops again
 before it will state a conclusion.
 
-The short version of what it finds: savers buy at 68.6% against 52.6% for non-savers, a 16-point gap.
-Savers have also been customers about 85 days longer, and "buyer" here means *ever placed an order*,
-which is cumulative. Compare people who joined around the same time and the gap falls to about 5
-points. Most of it was tenure.
+Same model, same data, same question. The difference is that the definitions live in a file instead
+of in your head.
 
 ## No install
 
