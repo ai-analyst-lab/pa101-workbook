@@ -1,0 +1,15 @@
+{
+  "name": "pa101-workbook",
+  "owner": {
+    "name": "AI Analyst Lab",
+    "url": "https://aianalystlab.ai"
+  },
+  "plugins": [
+    {
+      "name": "product-analytics",
+      "source": "./product-analytics",
+      "description": "Turns a data request into a decision. Runs a framing gate, a comparability check, and a validation gate before it will state a conclusion."
+    }
+  ],
+  "description": "The Product Analytics 101 workflow: gates, definitions, and a comparability check that runs whether or not you remember it."
+}

@@ -1,0 +1,16 @@
+{
+  "name": "product-analytics",
+  "description": "Turns a data request into a decision. Stops to ask what decision is being made, runs a comparability check on any group comparison, and refuses to state a conclusion until a person signs off.",
+  "author": {
+    "name": "AI Analyst Lab",
+    "url": "https://aianalystlab.ai"
+  },
+  "homepage": "https://aianalystlab.ai/pa101",
+  "keywords": [
+    "analytics",
+    "product-analytics",
+    "data",
+    "validation"
+  ],
+  "version": "1.0.0"
+}
