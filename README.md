@@ -1,90 +1,75 @@
-# Product Analytics 101 — workbook
+# Product Analytics 101 workbook
 
-Companion repo for the AI Analyst Lab Lightning Lesson *Product Analytics 101: From Question to
-Decision with AI*.
+Companion repo for the AI Analyst Lab Lightning Lesson "Product Analytics 101: From Question to
+Decision with AI."
 
-It is a small, deliberately readable example of an agentic analytics system: definitions that live in
-files instead of in someone's head, a workflow that runs whether or not you remember it, and two
-points where the system stops and makes a person decide.
+It is a small example of an agentic analytics system: metric definitions stored in files, an
+analysis workflow that loads when a request matches, and two checkpoints where a person decides
+before the system proceeds.
 
-## What's here
-
-```
-CLAUDE.md                              the constraints, 35 lines
-.claude/skills/analysis-workflow/      the workflow, loads when a request matches
-.claude/rules/datasets.md              constraints that apply when touching data
-.claude/hooks/list-datasets.sh         states what datasets exist, every session
-datasets/novamart/                     50k synthetic users
-datasets/storefront/                   50k synthetic visitors
-```
-
-Each dataset carries its own `definitions.md`. Nothing outside `datasets/` names a dataset, a column,
-or a metric, so adding your own data means adding a folder and a definitions file, and changing
-nothing else.
-
-## The six steps
+## Contents
 
 ```
-DECIDE  ->  ASK  ->  HYPOTHESIZE  ->  MEASURE  ->  SHARE  ->  ACT
+CLAUDE.md                              constraints (35 lines)
+.claude/skills/analysis-workflow/      the analysis workflow
+.claude/rules/datasets.md              rules that apply when reading data
+.claude/hooks/list-datasets.sh         lists available datasets at session start
+datasets/novamart/                     50,000 synthetic users
+datasets/storefront/                   50,000 synthetic visitors
+product-analytics/                     the Cowork plugin
 ```
 
-Most analysis is just measure and share. The other four are what turn a number into a decision. AI
-made a seventh necessary, between measure and share: validate.
+Each dataset has its own `definitions.md`. No file outside `datasets/` names a dataset, a column, or
+a metric. To use your own data, add a folder with a CSV and a definitions file.
 
-## Two ways to run it, and the order matters
+## The workflow
 
-The workflow in this repo is the *second* run. The definitions and the checks are already written
-down, so it will catch the problem in the first step. That is the point of it, and it also spoils the
-exercise if you start here.
+```
+DECIDE -> ASK -> HYPOTHESIZE -> MEASURE -> VALIDATE -> SHARE -> ACT
+```
 
-**Do the walkthrough first, without this repo.** Download a CSV, open
-[claude.ai](https://claude.ai), and work through the steps on the student portal. You will get a
-clean, correct, confident answer that is about to send you the wrong way.
+The workflow stops twice: once before analyzing, to confirm whether the request needs the raw
+difference or a causal effect, and once before concluding, to show the comparability check and ask
+whether to proceed.
 
-**Then clone this and ask the same question.** Open it in Claude Code and paste the request the way
-it actually arrives:
+## Run it
+
+Do the walkthrough on the student portal first, in claude.ai, without this repo. The harness here
+runs the comparability check immediately, so use it as the second run, not the first.
+
+1. Clone the repo and open it in Claude Code.
+2. Paste:
 
 > Users who use Save for Later seem to buy a lot more than users who don't. We're thinking about
 > making the Save for Later button more prominent to drive purchases. Should we?
 
-It stops and asks what you actually want before it analyzes anything. Answer, and it runs the
-comparison, checks whether the two groups were comparable in the first place, and stops again before
-it will state a conclusion.
+3. It asks whether you want the raw difference or the causal effect. Answer.
+4. It measures, runs the comparability check, and stops before concluding.
 
-Same model, same data, same question. The difference is where the definitions live.
+## The second dataset
 
-## Try it on the other dataset
-
-`datasets/storefront` is a different domain with different column names. Ask:
+`datasets/storefront` has different columns and a different question:
 
 > Desktop visitors order more than mobile visitors. Should we invest in the mobile experience?
 
-Worth doing because the check comes back differently there. A comparability check that finds nothing
-is a real result, not a failed one.
+The comparability check finds no confound there: the gap holds within every channel, market, and
+signup cohort. A check that finds nothing is a valid result.
 
-## Use it in Cowork
+## Cowork plugin
 
-This repo is also a plugin marketplace. In Claude, open Cowork, then **Customize → Plugins → Add
-marketplace** and enter:
+This repo is also a plugin marketplace.
 
-```
-ai-analyst-lab/pa101-workbook
-```
+1. In Claude, open Cowork, then Customize, then Plugins.
+2. Choose Add marketplace and enter `ai-analyst-lab/pa101-workbook`.
+3. Install `product-analytics`.
 
-Install `product-analytics`. You get the workflow as a skill that fires on its own, plus two
-commands: `/product-analytics:frame` to turn a vague request into a decision and a hypothesis, and
-`/product-analytics:check` to run a comparability check on a comparison.
+The plugin provides the workflow as a skill plus two commands: `/product-analytics:frame` (turn a
+request into a decision, a question, and a hypothesis) and `/product-analytics:check` (run a
+comparability check on a group comparison). The plugin carries no data.
 
-The plugin carries no data. Point it at your own.
+## Notes
 
-## A note on the layout
-
-The workflow lives in exactly one file, `product-analytics/skills/analysis-workflow/SKILL.md`.
-`.claude/skills/analysis-workflow` is a symlink to it, so cloning the repo and installing the plugin
-give you the same workflow and it cannot drift. On Windows, git needs `core.symlinks=true` for that
-link to resolve.
-
-## No install
-
-You don't need this repo. Download a CSV, upload it to claude.ai, and paste the prompts from the
-student portal. The workflow is the point, not the tooling.
+- The workflow lives in one file, `product-analytics/skills/analysis-workflow/SKILL.md`.
+  `.claude/skills/analysis-workflow` is a symlink to it. On Windows, set `git config core.symlinks
+  true` before cloning.
+- Both datasets are synthetic, generated for teaching. No real people, no real company.
