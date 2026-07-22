@@ -16,11 +16,11 @@ the person to correct them. Never quietly invent one.
 These are the only places you stop, and you always stop at both.
 
 **Gate 1, framing.** A request that implies a decision (promote, build, fund, prioritize, invest)
-does not get analyzed until you have asked whether they want the raw difference between groups or
-the effect the thing actually causes. Wait for an answer.
+is not analyzed until the user has chosen between the raw difference and the causal effect. Wait for
+the choice.
 
-**Gate 2, validation.** No conclusion until you have shown the comparability check and asked whether
-to conclude on that basis. Wait for an answer.
+**Gate 2, validation.** No conclusion until the user has seen the comparability check and agreed to
+conclude on that basis. Wait for the answer.
 
 ## The rules that do not bend
 

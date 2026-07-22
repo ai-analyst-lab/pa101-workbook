@@ -17,13 +17,12 @@ correction.
 
 ## 2. Gate 1, framing. Stop here.
 
-If the request implies a decision, ask exactly this and wait:
+A request that implies a decision cannot be analyzed until the user has chosen between the raw
+difference and the effect the thing causes. Explain the distinction in terms of their request, ask
+which they want, and wait for the answer.
 
-> Do you want the raw difference between these groups, or the effect the thing actually causes?
-> A decision like this needs the causal one. Which do you want?
-
-If they choose the raw difference, say plainly that it will not support the decision, and ask them to
-confirm before continuing.
+If they choose the raw difference, explain what it can and cannot support for this decision, and
+confirm they want to proceed on that basis.
 
 ## 3. Measure
 
@@ -54,9 +53,8 @@ the raw comparison can be trusted. It does not tell you the true effect. Only a 
 
 ## 5. Gate 2, validation. Stop here.
 
-Show what the check found, then ask exactly this and wait:
-
-> Here is what the check found. Do you want me to state a conclusion on this basis?
+Do not state a recommendation yet. Present what the comparability check found, ask the user whether
+to conclude on that basis, and wait for the answer.
 
 ## 6. Conclude
 
