@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.1
+
+Definitions files now describe only what each column measures. Removed the embedded warnings and
+conclusions (cumulative-outcome notes, contamination cautions, no-experiment statements, listed
+check variables). Deriving those is the workflow's job, and it does.
+
 ## 1.1.0
 
 Flattened the layout. The skill and commands moved to their standard Claude Code locations

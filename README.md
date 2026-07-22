@@ -53,8 +53,7 @@ runs the comparability check immediately, so use it as the second run, not the f
 
 > Desktop visitors order more than mobile visitors. Should we invest in the mobile experience?
 
-The comparability check finds no confound there: the gap holds within every channel, market, and
-signup cohort. A check that finds nothing is a valid result.
+The check comes back differently there. Run it and compare.
 
 ## Cowork plugin
 
